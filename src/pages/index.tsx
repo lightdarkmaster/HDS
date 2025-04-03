@@ -282,31 +282,35 @@ const Home: React.FC = () => {
 
       <div className="w-full h-full border rounded-[10px] bg-white text-black poppins-light relative">
           <div className=" w-full h-screen rounded-[10px] shadow-md p-[10px]">
-          <div className="w-full h-full text-center py-[20px]">
-            <h1 className="poppins-light text-xl">Results</h1>
-            <div className="flex p-[10px] shadow-md rounded-[10px] py-[10px]">
-              <div className="w-full">
-                <h1>
-                  Score:{" "}
-                  <span className="poppins-bold text-red-700 text-2xl">
-                    {totalScore}
-                  </span>{" "}
-                  points
-                </h1>
-              </div>
-              <div className="w-full border-l">
-                <h1>Status:
-                  <span className="text-xl poppins-bold text-red-700 pl-[10px]"> 
-                    {severityInfo.severity}
-                  </span>
-                </h1>
+          <div className="w-full h-full text-center py-[20px] p-[10px] gap-[10px]">
+            <div className="w-full h-fit p-3 gap-[10px]">
+              <h1 className="poppins-light text-xl">Results</h1>
+              <div className="flex p-[10px] shadow-md rounded-[10px] py-[10px]">
+                <div className="w-full">
+                  <h1>
+                    Score:{" "}
+                    <span className="poppins-bold text-red-700 text-2xl">
+                      {totalScore}
+                    </span>{" "}
+                    points
+                  </h1>
+                </div>
+                <div className="w-full">
+                  <h1>Status:
+                    <span className="text-xl poppins-bold text-red-700 pl-[10px]">
+                      {severityInfo.severity}
+                    </span>
+                  </h1>
+                </div>
               </div>
             </div>
             <div className="w-full h-fit rounded-[10px] shadow-md py-[10px]">
               <div className="gap-[10px] p-[10px] rounded-[10px]">
-                <h1 className="poppins-light text-xl mt-4">Advice</h1>
-                <div className="w-full h-fit p-[10px] gap-[10px] rounded-[10px] border">
-                  <p className="text-gray-700">{severityInfo.advice}</p>
+                <div className="w-full h-fit p-3 gap-[10px]">
+                  <h1 className="poppins-light text-xl mt-4">Advise</h1>
+                  <div className="w-full h-fit p-[10px] gap-[10px] rounded-[10px] border">
+                    <p className="text-gray-700">{severityInfo.advice}</p>
+                  </div>
                 </div>
               </div>
             </div>
