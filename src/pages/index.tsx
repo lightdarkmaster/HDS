@@ -195,21 +195,33 @@ const questions: Question[] = [
 const severityLevels = [
   {
     min: 0,
-    max: 0,
-    severity: "No Depression",
+    max: 7,
+    severity: "Normal",
     advice: "Maintain a healthy routine.",
   },
   {
-    min: 1,
-    max: 17,
+    min: 8,
+    max: 13,
     severity: "Mild Depression",
-    advice: "Monitor mood and practice self-care.",
+    advice: "Maintain a healthy routine.",
   },
   {
-    min: 34,
-    max: 50,
+    min: 14,
+    max: 18,
+    severity: "Moderate depression",
+    advice: "If scores do not improve as expected, consider revising the treatment plan or conducting additional diagnostic evaluations to rule out other underlying conditions.",
+  },
+  {
+    min: 19,
+    max: 22,
     severity: "Severe Depression",
-    advice: "Consider therapy and support groups.",
+    advice: "Based on changes in HAM-D scores over time, adjust treatments (e.g., medications, psychotherapy) to optimize outcomes.",
+  },
+  {
+    min: 23,
+    max: 50,
+    severity: "Very severe depression",
+    advice: "Higher scores indicate more severe depression and may warrant more aggressive treatment.",
   },
 ];
 
