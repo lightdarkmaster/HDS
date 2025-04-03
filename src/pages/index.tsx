@@ -203,13 +203,13 @@ const severityLevels = [
     min: 8,
     max: 13,
     severity: "Mild Depression",
-    advice: "Maintain a healthy routine.",
+    advice: "consider lifestyle changes like regular exercise, a healthy diet, and sufficient sleep, along with seeking support from friends and family, and potentially talking to a mental health professional or your doctor",
   },
   {
     min: 14,
     max: 18,
     severity: "Moderate depression",
-    advice: "If scores do not improve as expected, consider revising the treatment plan or conducting additional diagnostic evaluations to rule out other underlying conditions.",
+    advice: "Relaxation techniques and yoga. There is some evidence that relaxation techniques can help relieve mild to moderate depression. These include approaches such as progressive muscle relaxation, autogenic training, music therapy and yoga.",
   },
   {
     min: 19,
@@ -220,8 +220,8 @@ const severityLevels = [
   {
     min: 23,
     max: 50,
-    severity: "Very severe depression",
-    advice: "Higher scores indicate more severe depression and may warrant more aggressive treatment.",
+    severity: "Very Severe Depression",
+    advice: "seek immediate professional help. Prioritize connecting with a psychiatrist or therapist, and consider hospitalization if necessary. In the meantime, focus on self-care and support from loved ones.",
   },
 ];
 
@@ -249,6 +249,7 @@ const Home: React.FC = () => {
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Hamilton Depression Rating Scale (HAM-D)
         </h1>
+        <h2 className="text-center text-black py-[10px]">By: Christian Barbosa</h2>
         <div className="space-y-6 poppins-light">
           {questions.map((q, index) => (
             <div key={index} className="p-4 bg-white shadow-md rounded-lg">
@@ -281,9 +282,9 @@ const Home: React.FC = () => {
 
       <div className="w-full h-full border rounded-[10px] bg-white text-black poppins-light relative">
           <div className=" w-full h-screen rounded-[10px] shadow-md p-[10px]">
-          <div className="w-full h-full text-center">
+          <div className="w-full h-full text-center py-[20px]">
             <h1 className="poppins-light text-xl">Results</h1>
-            <div className="flex shadow-md p-[10px] rounded-[10px] py-[10px]">
+            <div className="flex p-[10px] shadow-md rounded-[10px] py-[10px]">
               <div className="w-full">
                 <h1>
                   Score:{" "}
