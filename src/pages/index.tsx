@@ -221,7 +221,7 @@ const severityLevels = [
     min: 23,
     max: 50,
     severity: "Very Severe Depression",
-    advice: "seek immediate professional help. Prioritize connecting with a psychiatrist or therapist, and consider hospitalization if necessary. In the meantime, focus on self-care and support from loved ones.",
+    advice: "Seek immediate professional help. Prioritize connecting with a psychiatrist or therapist, and consider hospitalization if necessary. In the meantime, focus on self-care and support from loved ones.",
   },
 ];
 
