@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Question } from "./types";
+import { Question } from "../types/types";
 import Image from "next/image";
 
 const questions: Question[] = [
