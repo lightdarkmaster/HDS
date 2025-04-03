@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Question } from "./types";
-
+import Image from "next/image";
 
 const questions: Question[] = [
   {
@@ -203,28 +203,31 @@ const severityLevels = [
     min: 8,
     max: 13,
     severity: "Mild Depression",
-    advice: "consider lifestyle changes like regular exercise, a healthy diet, and sufficient sleep, along with seeking support from friends and family, and potentially talking to a mental health professional or your doctor",
+    advice:
+      "consider lifestyle changes like regular exercise, a healthy diet, and sufficient sleep, along with seeking support from friends and family, and potentially talking to a mental health professional or your doctor",
   },
   {
     min: 14,
     max: 18,
     severity: "Moderate depression",
-    advice: "Relaxation techniques and yoga. There is some evidence that relaxation techniques can help relieve mild to moderate depression. These include approaches such as progressive muscle relaxation, autogenic training, music therapy and yoga.",
+    advice:
+      "Relaxation techniques and yoga. There is some evidence that relaxation techniques can help relieve mild to moderate depression. These include approaches such as progressive muscle relaxation, autogenic training, music therapy and yoga.",
   },
   {
     min: 19,
     max: 22,
     severity: "Severe Depression",
-    advice: "Based on changes in HAM-D scores over time, adjust treatments (e.g., medications, psychotherapy) to optimize outcomes.",
+    advice:
+      "Based on changes in HAM-D scores over time, adjust treatments (e.g., medications, psychotherapy) to optimize outcomes.",
   },
   {
     min: 23,
     max: 50,
     severity: "Very Severe Depression",
-    advice: "Seek immediate professional help. Prioritize connecting with a psychiatrist or therapist, and consider hospitalization if necessary. In the meantime, focus on self-care and support from loved ones.",
+    advice:
+      "Seek immediate professional help. Prioritize connecting with a psychiatrist or therapist, and consider hospitalization if necessary. In the meantime, focus on self-care and support from loved ones.",
   },
 ];
-
 
 const Home: React.FC = () => {
   const [selectedScores, setSelectedScores] = useState<{
@@ -236,12 +239,23 @@ const Home: React.FC = () => {
   };
 
   const totalScore = Object.values(selectedScores).reduce(
-    (acc, score) => acc + score,0 );
+    (acc, score) => acc + score,
+    0
+  );
 
   const severityInfo =
     severityLevels.find(
       (level) => totalScore >= level.min && totalScore <= level.max
     ) || severityLevels[severityLevels.length - 1];
+
+    const getImageBasedOnScore = (score: number) => {
+      if (score < 8) return "/images/normal.gif";
+      if (score < 14) return "/images/mild.gif";
+      if (score < 20) return "/images/moderate.gif";
+      if (score < 28) return "/images/severe.gif";
+      return "/images/extreme.gif";
+    };
+
 
   return (
     <div className=" relative w-full h-full flex py-[1px] gap-[10px] poppins-light">
@@ -249,7 +263,9 @@ const Home: React.FC = () => {
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Hamilton Depression Rating Scale (HAM-D)
         </h1>
-        <h2 className="text-center text-black py-[10px]">By: Christian Barbosa</h2>
+        <h2 className="text-center text-black py-[10px]">
+          By: Christian Barbosa
+        </h2>
         <div className="space-y-6 poppins-light">
           {questions.map((q, index) => (
             <div key={index} className="p-4 bg-white shadow-md rounded-lg">
@@ -281,7 +297,7 @@ const Home: React.FC = () => {
       </div>
 
       <div className="w-full h-full border rounded-[10px] bg-white text-black poppins-light relative">
-          <div className=" w-full h-screen rounded-[10px] shadow-md p-[10px]">
+        <div className=" w-full h-screen rounded-[10px] shadow-md p-[10px]">
           <div className="w-full h-full text-center py-[20px] p-[10px] gap-[10px]">
             <div className="w-full h-fit p-3 gap-[10px]">
               <h1 className="poppins-light text-xl">Results</h1>
@@ -296,7 +312,8 @@ const Home: React.FC = () => {
                   </h1>
                 </div>
                 <div className="w-full">
-                  <h1>Status:
+                  <h1>
+                    Status:
                     <span className="text-xl poppins-bold text-red-700 pl-[10px]">
                       {severityInfo.severity}
                     </span>
@@ -314,6 +331,16 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+
+          <div className="flex w-full h-fit py-[20px] justify-center items-center">
+            <Image
+              src={getImageBasedOnScore(totalScore)}
+              width={200}
+              height={200}
+              alt="Depression Severity Level"
+              className="w-[300px] h-[300px] cursor-pointer"
+            />
+          </div>
           </div>
         </div>
       </div>
