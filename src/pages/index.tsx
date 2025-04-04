@@ -279,7 +279,7 @@ const Home: React.FC = () => {
                 {q.ratings.map((rating, idx) => (
                   <button
                     key={idx}
-                    className={`flex justify-between w-full px-4 py-2 text-black text-sm ${
+                    className={`flex justify-between w-full px-4 py-2 text-black text-sm cursor-pointer ${
                       selectedScores[q.category] === rating.score
                         ? "bg-teal-500 text-white"
                         : "bg-gray-100"
